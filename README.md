@@ -9,99 +9,109 @@ A complete, production-grade Data Science & Analytics project featuring a rigoro
 
 ---
 
-## 📊 Dashboard Preview & Layout Structure
+## 📸 Dashboard Screenshot
 
-```
-+-----------------------------------------------------------------------------------+
-|  🚢 Titanic Disaster: Statistical EDA & Insights Dashboard                        |
-|  Interactive analytics converting §3.1 EDA into executive metrics & insights.     |
-+-----------------------------------------------------------------------------------+
-|  📌 Key Performance Indicators (KPIs)                                            |
-|  [ Survival Rate: 38.4% ]  [ Passengers: 891 ]  [ Avg Fare: £32.20 ] [ Cabin: 23% ] |
-+-----------------------------------------------------------------------------------+
-|  📈 Interactive Plotly Visualizations & Insight Callout Cards                     |
-|                                                                                   |
-|  [ Chart 1: Survival Rate by Gender & Class ]  [ Chart 2: Fare vs Survival (Log) ] |
-|  💡 Insight 1: 74.2% female vs 18.9% male.      💡 Insight 2: £48.40 vs £22.12 fare|
-|                                                                                   |
-|  [ Chart 3: Age Distribution & Vulnerability ] [ Chart 4: Survival by Embarked ]  |
-|  💡 Insight 3: Child survival spike (<10 yrs).  💡 Insight 4: Cherbourg rate 55.4% |
-+-----------------------------------------------------------------------------------+
-```
+![Titanic EDA Streamlit Dashboard](screenshot.png)
+
+*Live interactive Streamlit dashboard showing sidebar filters, Plotly charts, and insight callout blocks.*
 
 ---
 
-## 🌟 Key Project Features & Deliverables
+## 🎯 Dashboard Features
 
-### 1. Complete §3.1 EDA Workflow (`eda_workflow.ipynb` & `titanic_statistical_eda.ipynb`)
-- **Data Quality & Missing Value Strategy**: Imputed missing `Age` using **Median** ($28.0$ years) to prevent outlier distortion; imputed `Embarked` using **Mode** (`'S'`); transformed `Cabin` into a binary indicator `Has_Cabin`.
-- **Univariate Analysis & Skewness**: Quantified right-skewness in `Fare` ($\text{Skewness} = 4.79$) and recommended logarithmic transformation $\log(1 + \text{Fare})$.
-- **Outlier Detection (IQR Rule)**: Calculated $Q1, Q3, \text{IQR}$ bounds and identified 116 legitimate luxury fare outliers (£66.34 to £512.33).
-- **Formal Hypothesis Testing**: Conducted a Welch's Two-Sample t-test ($t = 6.8391, p = 2.699 \times 10^{-11} < 0.05$), proving survivors paid a statistically significantly higher average fare (£48.40 vs £22.12).
+### 📌 1 KPI Row (st.metric)
+| Metric | Value | Description |
+| :--- | :--- | :--- |
+| **Overall Survival Rate** | 38.4% | Dynamic — updates based on sidebar filters |
+| **Filtered Passengers** | 891 | Total active passengers after filter selection |
+| **Average Ticket Fare** | £32.20 | Mean fare for filtered sample |
+| **Cabin Ownership Rate** | 23.0% | Socio-economic proxy indicator |
 
-### 2. Interactive Streamlit Dashboard (`app.py`)
-- **1 Executive KPI Row (`st.metric`)**: Overall Survival Rate %, Filtered Passengers Count, Average Ticket Fare £, and Cabin Ownership Rate %.
-- **4 Multi-Dimensional Interactive Filters**: Passenger Class (`Pclass`), Gender (`Sex`), Age Range Slider (0–80 years), and Embarkation Port (`Embarked`).
-- **4 Interactive Plotly Charts**: Custom color palettes, hover templates, log scales, and grouped bar/box plots.
-- **1 Insight Text Block Per Chart**: Highlights key business implications right alongside each visual.
+### 🔍 1 Interactive Filter (Sidebar)
+- **Passenger Class** → Multiselect (1st / 2nd / 3rd Class)
+- **Gender** → **Selectbox** (All / female / male)
+- **Age Range** → **Slider** (0 to 80 years)
+- **Port of Embarkation** → Multiselect (Southampton / Cherbourg / Queenstown)
 
----
+### 📊 3 Plotly Charts + 1 Insight Text Block Each
 
-## 🛠️ Tech Stack & Dependencies
-
-- **Language**: Python 3.11
-- **Dashboard Framework**: Streamlit
-- **Visualization**: Plotly Express, Plotly Graph Objects, Seaborn, Matplotlib
-- **Data Processing & Analytics**: Pandas, NumPy, SciPy (Stats)
-- **Notebook Environment**: Jupyter / NbFormat
+| Chart | Type | Insight |
+| :--- | :--- | :--- |
+| Survival Rate by Gender & Class | Grouped Bar Chart | Females: 74.2% vs Males: 18.9% survival |
+| Ticket Fare vs Survival | Log-Scaled Box Plot | Survivors paid £48.40 vs £22.12 (p < 0.001) |
+| Age Distribution by Survival | Overlaid Histogram | Children <10 yrs had ~59% survival spike |
+| Survival Rate by Embarkation Port | Bar Chart | Cherbourg passengers: 55.4% survival rate |
 
 ---
 
 ## 🚀 How to Run Locally
 
-### 1. Clone the Repository
+### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/your-username/titanic-eda-streamlit-dashboard.git
-cd titanic-eda-streamlit-dashboard
+git clone https://github.com/aditya29625/titanic_eda_project.git
+cd titanic_eda_project
 ```
 
-### 2. Set Up Virtual Environment & Install Dependencies
+### Step 2: Create Virtual Environment & Install Dependencies
 ```bash
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate        # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Launch the Streamlit Dashboard
+### Step 3: Launch the Streamlit Dashboard
 ```bash
 streamlit run app.py
 ```
-The dashboard will open automatically in your browser at `http://localhost:8501`.
+The dashboard opens automatically at **http://localhost:8501**
 
-### 4. Run the Jupyter Notebook
+### Step 4: Run the Jupyter Notebook
 ```bash
 jupyter notebook eda_workflow.ipynb
 ```
 
 ---
 
-## 📤 How to Push to GitHub
+## 📦 Project Files
 
-1. Initialize Git and commit files locally:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Titanic §3.1 EDA workflow & Streamlit Dashboard"
-   ```
-2. Create a new repository on GitHub (e.g. `titanic-eda-streamlit-dashboard`).
-3. Connect remote and push:
-   ```bash
-   git remote add origin https://github.com/<your-username>/titanic-eda-streamlit-dashboard.git
-   git branch -M main
-   git push -u origin main
-   ```
+| File | Description |
+| :--- | :--- |
+| `app.py` | Streamlit dashboard — KPI row, filters, 4 Plotly charts, insight blocks |
+| `eda_workflow.ipynb` | §3.1 EDA Jupyter Notebook |
+| `titanic_statistical_eda.ipynb` | Full 10-section Statistical Analysis Notebook |
+| `titanic_statistical_eda.html` | Rendered HTML Report |
+| `requirements.txt` | Python package dependencies |
+| `screenshot.png` | Dashboard screenshot |
+
+---
+
+## 📦 Requirements
+
+See [requirements.txt](requirements.txt):
+
+```
+streamlit>=1.30.0
+plotly>=5.18.0
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+nbformat>=5.9.0
+```
+
+---
+
+## 🛠️ Tech Stack
+
+- **Dashboard**: Streamlit
+- **Charts**: Plotly Express, Plotly Graph Objects
+- **Data**: Pandas, NumPy
+- **Statistics**: SciPy (Welch's t-test)
+- **EDA Visualization**: Seaborn, Matplotlib
+- **Notebook**: Jupyter / NbFormat
 
 ---
 
 ## 📝 License
-This project is open-source under the MIT License.
+MIT License
