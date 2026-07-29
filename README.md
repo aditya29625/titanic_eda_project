@@ -11,16 +11,11 @@ A complete, production-grade Data Science & Analytics project featuring a rigoro
 
 ## 📸 Dashboard Screenshots
 
-### Main Dashboard (Filters & KPIs)
-![Titanic EDA Streamlit Dashboard](screenshot.png)
+### KPIs & Top Charts
+![Titanic EDA Dashboard Top](dashboard_top.png)
 
-*Live interactive Streamlit dashboard showing sidebar filters and KPIs.*
-
-### Charts 1 & 2
-![Survival by Gender & Class and Ticket Fare vs Survival](charts_1_2.png)
-
-### Charts 3 & 4
-![Age Distribution and Survival by Port](charts_3_4.png)
+### Insights & Bottom Charts
+![Titanic EDA Dashboard Bottom](dashboard_bottom.png)
 
 ---
 
@@ -88,7 +83,8 @@ jupyter notebook eda_workflow.ipynb
 | `titanic_statistical_eda.ipynb` | Full 10-section Statistical Analysis Notebook |
 | `titanic_statistical_eda.html` | Rendered HTML Report |
 | `requirements.txt` | Python package dependencies |
-| `screenshot.png` | Dashboard screenshot |
+| `dashboard_top.png` | Dashboard screenshot (Top) |
+| `dashboard_bottom.png` | Dashboard screenshot (Bottom) |
 
 ---
 
