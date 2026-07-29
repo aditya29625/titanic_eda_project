@@ -9,11 +9,18 @@ A complete, production-grade Data Science & Analytics project featuring a rigoro
 
 ---
 
-## 📸 Dashboard Screenshot
+## 📸 Dashboard Screenshots
 
+### Main Dashboard (Filters & KPIs)
 ![Titanic EDA Streamlit Dashboard](screenshot.png)
 
-*Live interactive Streamlit dashboard showing sidebar filters, Plotly charts, and insight callout blocks.*
+*Live interactive Streamlit dashboard showing sidebar filters and KPIs.*
+
+### Charts 1 & 2
+![Survival by Gender & Class and Ticket Fare vs Survival](charts_1_2.png)
+
+### Charts 3 & 4
+![Age Distribution and Survival by Port](charts_3_4.png)
 
 ---
 
